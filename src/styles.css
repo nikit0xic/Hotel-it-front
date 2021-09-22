@@ -1,1 +1,159 @@
-/* You can add global styles to this file, and also import other style files */
+.body{
+  background-color: #eff1f4;
+}
+
+body{
+  background-image: url(src/assets/seabottom2.jpg);
+}
+
+.site{
+  border-bottom: 1px solid lightgray;
+  box-shadow: inset 0 5px 10px rgba(0,0,0,0.5); /* Параметры тени */
+  background-color: #fafafa;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+  padding: 10px;
+}
+
+.paginator{
+  background-color: #eaeaea;
+}
+
+.page-inner{
+  background-color: #fafafa;
+  margin: 0px auto;
+  max-width: 1320px;
+  position: relative;
+}
+
+.site-header{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.author-info{
+
+  color: #000000;
+  text-decoration:none;
+  font-family:Laksaman;
+}
+
+.logotype{
+  color: #000000;
+  text-decoration: none;
+  font-size: 300%;
+  font-family:Laksaman;
+}
+
+.site-header-main{
+  display: flex;
+}
+
+.site-branding, .site-header-menu{
+  vertical-align:middle;
+  height: 100%;
+}
+
+
+.site-branding{
+  margin-top: 20px;
+  width: 75%;
+  vertical-align:middle;
+}
+
+
+.site-header-menu{
+  width: 25%;
+}
+
+.login-text{
+  font-family: Laksaman;
+}
+
+.login-input{
+
+}
+
+.password-text{
+  font-family: Laksaman;
+}
+
+.password-input{
+
+}
+
+.table-inner{
+  background-color:azure;
+}
+
+.button-login{
+  size: 20px;
+}
+
+.link-forgot-pass{
+  float:right;
+}
+
+.my-app{
+  margin: 21px;
+  font-size: 30px;
+  font-family: Loma;
+}
+
+.table-inner{
+  border: 1px lightgray solid;
+  box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  margin: 21px;
+  padding: 10px;
+}
+
+.button{
+  border: 1px lightgray solid;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  border-radius: 2px;
+
+}
+
+.table-menu-bar{
+
+  margin: 10px;
+
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  border:  ridge;
+  font-family: Laksaman;
+  background-color: azure;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  margin: 10px;
+  position: relative;
+}
+
+.App-link {
+  color: #61dafb;
+}
+hr{
+  margin: 21px;
+  color: whitesmoke;
+}
+
+.text-center{
+  font-size:large;
+}
+
+.arrows{
+
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

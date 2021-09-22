@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Создание пользователя:</h1>
+<div mat-dialog-content>
+  <p>Впишите данные</p>
+  <mat-form-field appearance="standard">
+    <mat-label>Имя</mat-label>
+    <input [formControl]="name" matInput>
+    <mat-error *ngIf="name.hasError('required')">пж введите имя</mat-error>
+    <mat-error *ngIf="name.hasError('blank')">имя не может быть пустым</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Фамилия</mat-label>
+    <input matInput [formControl]="lastName">
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Отчество</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Дата рождения</mat-label>
+    <input matInput >
+<!--    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #datepicker></mat-datepicker>-->
+  </mat-form-field>
+  <mat-form-field floatLabel="always" appearance="standard">
+    <mat-label>Полных лет</mat-label>
+    <input type="number" matInput >
+  </mat-form-field>
+  <mat-form-field floatLabel="always" appearance="standard">
+    <mat-label>Должность</mat-label>
+    <input matInput >
+  </mat-form-field>
+  <mat-form-field floatLabel="always" appearance="standard">
+    <mat-label>Адрес</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field floatLabel="always" appearance="standard">
+    <mat-label>Телефон</mat-label>
+    <input matInput >
+  </mat-form-field>
+  <mat-form-field floatLabel="always" appearance="standard">
+    <mat-label>Почта</mat-label>
+    <input matInput  >
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button [disabled]="formGroup.invalid" (click)="save()" mat-button >Сохранить</button>
+  <button mat-button (click)="onNoClick()">Отмена</button>
+</div>

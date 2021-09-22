@@ -1,0 +1,104 @@
+.user-table{
+  margin: 0 21px;
+  width: 98%;
+}
+
+thead{
+  height: 10px;
+  line-height:0px;
+}
+
+.table-header{
+
+}
+
+th{
+  font-size: 15px;
+  width:10%;
+  height: 4px !important;
+  background-color: #eaeaea;
+  color:#333333;
+  max-height: 20px !important;
+  padding-left:5px !important;
+}
+
+tr.mat-header-row{
+  height: 30px;
+}
+
+.id-column{
+  width: 1px!important;
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
+
+.firstName-column{
+
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
+
+.secondName-column{
+
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
+
+.thirdName-column{
+
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
+
+.role-column{
+
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
+
+.age-column{
+
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
+
+.birthDate-column{
+
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
+
+.email-column{
+
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
+
+.address-column{
+
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
+
+.phoneNumber-column{
+
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
+
+.table-entity{
+  padding-left: 5px;
+  border-bottom: thin solid #e0e0e0;
+  border-top: thin solid #e0e0e0;
+  border-left: thin solid #e0e0e0;
+}
