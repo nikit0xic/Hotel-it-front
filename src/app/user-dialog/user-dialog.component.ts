@@ -5,6 +5,7 @@ import {User} from "../../model/user";
 import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
+  selector:'my-dialog',
   templateUrl: './user-dialog.component.html',
   styleUrls: ['./user-dialog.component.css']
 })

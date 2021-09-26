@@ -1,11 +1,11 @@
 <h1 mat-dialog-title>Создание пользователя:</h1>
 <div mat-dialog-content>
-  <p>Впишите данные</p>
+  <p>Введите данные</p>
   <mat-form-field appearance="standard">
     <mat-label>Имя</mat-label>
     <input [formControl]="name" matInput>
-    <mat-error *ngIf="name.hasError('required')">пж введите имя</mat-error>
-    <mat-error *ngIf="name.hasError('blank')">имя не может быть пустым</mat-error>
+    <mat-error *ngIf="name.hasError('required')">Вы должны ввести имя</mat-error>
+    <mat-error *ngIf="name.hasError('blank')">Нельзя регистрировать безымянного пользователя</mat-error>
   </mat-form-field>
   <mat-form-field appearance="standard">
     <mat-label>Фамилия</mat-label>

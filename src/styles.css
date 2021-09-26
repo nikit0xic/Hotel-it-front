@@ -1,70 +1,60 @@
-.body{
-  background-color: #eff1f4;
-}
-
 body{
   background-image: url(src/assets/seabottom2.jpg);
 }
 
-.site{
+.site-header{
+  height: 35px;
   border-bottom: 1px solid lightgray;
-  box-shadow: inset 0 5px 10px rgba(0,0,0,0.5); /* Параметры тени */
-  background-color: #fafafa;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  -moz-box-shadow: inset 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  box-shadow: inset 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  background-color: #eaeaea;
 
-  padding: 10px;
 }
+
+.menu-header-element{
+  text-decoration: none;
+  color: #333333;
+  padding-top: 5px;
+  font-family:Laksaman;
+  font-size:20px;
+  border-left: 1px solid lightgray;
+  float: left;
+  width: 10%;
+  height: 91%;
+  text-align:center;
+}
+
+#header-menu-selector{
+  border-right: 1px solid lightgray;
+}
+
+#logotype{
+  font-size: 30px;
+  font-family:Laksaman;
+  font-weight: bold;
+}
+
+#logout-menu-button{
+  float:right;
+}
+
+
+
+
+
+
 
 .paginator{
   background-color: #eaeaea;
 }
 
-.page-inner{
-  background-color: #fafafa;
-  margin: 0px auto;
-  max-width: 1320px;
-  position: relative;
-}
-
-.site-header{
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-
 .author-info{
-
   color: #000000;
   text-decoration:none;
   font-family:Laksaman;
 }
 
-.logotype{
-  color: #000000;
-  text-decoration: none;
-  font-size: 300%;
-  font-family:Laksaman;
-}
-
-.site-header-main{
-  display: flex;
-}
-
-.site-branding, .site-header-menu{
-  vertical-align:middle;
-  height: 100%;
-}
-
-
-.site-branding{
-  margin-top: 20px;
-  width: 75%;
-  vertical-align:middle;
-}
-
-
-.site-header-menu{
-  width: 25%;
-}
 
 .login-text{
   font-family: Laksaman;
@@ -80,10 +70,6 @@ body{
 
 .password-input{
 
-}
-
-.table-inner{
-  background-color:azure;
 }
 
 .button-login{
@@ -110,49 +96,14 @@ body{
 }
 
 .button{
-  border: 1px lightgray solid;
-  box-shadow: 0 0 2px rgba(0,0,0,0.5);
-  border-radius: 2px;
+  border: 1px lightgray solid !important;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5) !important;
+  border-radius: 2px !important;
 
 }
 
 .table-menu-bar{
-
   margin: 10px;
-
-}
-
-.App {
-  text-align: center;
-}
-
-.App-header {
-  border:  ridge;
-  font-family: Laksaman;
-  background-color: azure;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: large;
-  margin: 10px;
-  position: relative;
-}
-
-.App-link {
-  color: #61dafb;
-}
-hr{
-  margin: 21px;
-  color: whitesmoke;
-}
-
-.text-center{
-  font-size:large;
-}
-
-.arrows{
-
 }
 
 html, body { height: 100%; }

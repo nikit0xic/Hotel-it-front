@@ -12,56 +12,19 @@
   <link href="styles.css" rel="stylesheet">
 </head>
 <body class="mat-typography">
-<div id="page" class="site">
-  <div class="page-inner">
-    <header id="master-head" class="site-header" role="banner">
-      <div class="site-header-main">
-        <div class="site-branding">
-          <p class="site-title">
-            <a class="logotype" href="index.html" rel="home">Hotel-IT</a>
-          </p>
-          <p class="site-description">
-            Помошник обслуживания клиентов | <a class="author-info" href="https://vk.com/id183905732" rel="author">Автор</a> | <a class="author-info" href="https://hotel-legal.ru/" rel="site">Наш сайт</a>
-          </p>
-        </div>
-
-        <div id="site-header-authorization" class="site-header-menu">
-          <form class="form-authorize" action="">
-            <p class="login-text">Логин:
-              <input class="login-input" maxlength="25" size="30" name="login">
-            </p>
-            <p class="password-text">
-              Пароль:
-              <input class=password-input" type="password" maxlength="25" size="30" name="password">
-            </p>
-            <button class="button-login">Вход</button>
-            <button class="sign-in">Регистрация</button>
-            <link class="link-forgot-pass" rel="" href="">Забыли пароль?-
-          </form>
-        </div>
-      </div>
-    </header>
-
+  <div class="site-header">
+    <div id="logotype" class="menu-header-element">Hotel-it</div>
+    <div id="Home-menu-button" class="menu-header-element">Home</div>
+    <div id="header-menu-selector" class="menu-header-element">
+      <select>
+        <option>Admin</option>
+        <option>Manager</option>
+        <option>Receptionist</option>
+      </select>
+    </div>
+    <div id="logout-menu-button" class="menu-header-element">Logout</div>
   </div>
-</div>
-<my-app class="my-app">Пользователи</my-app>
-<hr class="hr">
-<div class="table-inner">
-
-  <div class="table-menu-bar">
-
-    <div id="read" class="button"></div>
-
-    <div id="update" class="button"></div>
-
-    <div id="delete" class="button"></div>
-  </div>
-
-  <div id="root"></div>
-  <div id="root2"></div>
-
+  <my-app class="my-app">Таблица пользователей</my-app>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-</div>
 </body>
 </html>
