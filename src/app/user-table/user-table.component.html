@@ -1,28 +1,43 @@
 <div><table mat-table *ngIf="myDataArray" matSort [dataSource]="myDataArray"  class="user-table" [matSortDisableClear]="true" (matSortChange)="sortData($event)">
 
+  <ng-container matColumnDef="select">
+    <th class="select-column-header table-header" mat-header-cell *matHeaderCellDef mat-sort-header>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()">
+      </mat-checkbox>
+    </th>
+    <td class="select" mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
   <ng-container matColumnDef="id">
     <th class="id-column table-header" mat-header-cell *matHeaderCellDef> ID </th>
     <td mat-cell *matCellDef="let user"> {{user.id}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="firstName">
-    <th class="firstName-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.firstName}} </td>
+  <ng-container matColumnDef="name">
+    <th class="name-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.name}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="secondName">
-    <th class="secondName-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Second </th>
-    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.secondName}} </td>
+  <ng-container matColumnDef="lastName">
+    <th class="lastName-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Second </th>
+    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.lastName}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="thirdName">
-    <th class="thirdName-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Middle </th>
-    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.thirdName}} </td>
+  <ng-container matColumnDef="middleName">
+    <th class="middleName-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Middle </th>
+    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.middleName}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="birthDate">
-    <th class="birthDate-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Date </th>
-    <td mat-cell class="table-entity" *matCellDef="let user"> {{(user.birthDate | date: 'dd.MM.yyyy') || 'N/A'}} </td>
+  <ng-container matColumnDef="date">
+    <th class="date-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell class="table-entity" *matCellDef="let user"> {{(user.date | date: 'dd.MM.yyyy') || 'N/A'}} </td>
   </ng-container>
 
   <ng-container matColumnDef="age">
@@ -40,14 +55,24 @@
     <td mat-cell class="table-entity" *matCellDef="let user"> {{user.address}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="phoneNumber">
-    <th class="phoneNumber-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Phone </th>
-    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.phoneNumber}} </td>
+  <ng-container matColumnDef="phone">
+    <th class="phone-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Phone </th>
+    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.phone}} </td>
   </ng-container>
 
   <ng-container matColumnDef="email">
     <th class="email-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Email </th>
     <td mat-cell class="table-entity" *matCellDef="let user"> {{user.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="buttons">
+    <th class="email-column table-header"  mat-header-cell *matHeaderCellDef>  </th>
+    <td mat-cell class="table-entity" *matCellDef="let user">
+      <div class>
+        <mat-icon>edit</mat-icon>
+        <mat-icon>delete</mat-icon>
+      </div>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -56,8 +81,8 @@
 </table>
 <mat-paginator class="user-table paginator"
   [length]="length"
-  [pageSize]="5"
-    [pageSizeOptions]="[5, 10, 15]"
+  [pageSize]="10"
+    [pageSizeOptions]="[ 10, 15, 20]"
     (page)="setPage($event)">
 
 </mat-paginator>

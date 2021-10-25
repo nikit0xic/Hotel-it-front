@@ -20,7 +20,11 @@ export class ApiService {
   }
 
   public save(user: any){
-    return this.http.post(this.userUrl, user);
+    return this.http.post(this.userUrl,user,{responseType: 'text'});
+  }
+
+  public delete(user:any){
+    return this.http.delete(this.userUrl,user);
   }
 
   public update(id: number, data: any){

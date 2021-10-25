@@ -1,47 +1,65 @@
-<h1 mat-dialog-title>Создание пользователя:</h1>
+<h1 mat-dialog-title>Создание пользователя</h1>
 <div mat-dialog-content>
-  <p>Введите данные</p>
+  <p>Заполните поля</p>
+
   <mat-form-field appearance="standard">
     <mat-label>Имя</mat-label>
     <input [formControl]="name" matInput>
     <mat-error *ngIf="name.hasError('required')">Вы должны ввести имя</mat-error>
-    <mat-error *ngIf="name.hasError('blank')">Нельзя регистрировать безымянного пользователя</mat-error>
+    <mat-error *ngIf="name.hasError('blank')">Нельзя добавить безымянного пользователя</mat-error>
   </mat-form-field>
+
   <mat-form-field appearance="standard">
     <mat-label>Фамилия</mat-label>
     <input matInput [formControl]="lastName">
+    <mat-error *ngIf="lastName.hasError('required')">Вы должны ввести фамилию</mat-error>
+    <mat-error *ngIf="lastName.hasError('blank')">Нельзя добавить пользователя без фамилии</mat-error>
   </mat-form-field>
+
   <mat-form-field appearance="standard">
     <mat-label>Отчество</mat-label>
-    <input matInput>
+    <input [formControl]="middleName"  matInput>
   </mat-form-field>
+
   <mat-form-field appearance="standard">
     <mat-label>Дата рождения</mat-label>
-    <input matInput >
-<!--    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>-->
-<!--    <mat-datepicker #datepicker></mat-datepicker>-->
+    <input matInput [formControl]="date" [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker">{{age}}</mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+
   <mat-form-field floatLabel="always" appearance="standard">
     <mat-label>Полных лет</mat-label>
-    <input type="number" matInput >
+    <input type="number" matInput min="14" max="100" [formControl]="age" [minLength]="2" [maxLength]="3">
   </mat-form-field>
+
   <mat-form-field floatLabel="always" appearance="standard">
     <mat-label>Должность</mat-label>
-    <input matInput >
+    <select [formControl]="role" matNativeControl required>
+      <option value="ADMINISTRATOR">Администратор</option>
+      <option value="MANAGER">Менеджер</option>
+      <option value="RECEPTIONIST">Ресепшионист</option>
+    </select>
   </mat-form-field>
+
   <mat-form-field floatLabel="always" appearance="standard">
     <mat-label>Адрес</mat-label>
-    <input matInput>
+    <mat-hint>Фактическое метсо проживания</mat-hint>
+    <input matInput [formControl]="address">
   </mat-form-field>
+
   <mat-form-field floatLabel="always" appearance="standard">
     <mat-label>Телефон</mat-label>
-    <input matInput >
+    <input matInput [formControl]="phone" placeholder="+78001122333" maxlength="12">
+    <mat-icon matSuffix>phone</mat-icon>
   </mat-form-field>
+
   <mat-form-field floatLabel="always" appearance="standard">
     <mat-label>Почта</mat-label>
-    <input matInput  >
+    <input matInput [formControl]="email" placeholder="email@example.com" type="email">
   </mat-form-field>
 </div>
+
 <div mat-dialog-actions>
   <button [disabled]="formGroup.invalid" (click)="save()" mat-button >Сохранить</button>
   <button mat-button (click)="onNoClick()">Отмена</button>

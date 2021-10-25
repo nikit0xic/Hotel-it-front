@@ -1,3 +1,18 @@
 .mat-dialog-content{
   display: grid;
+
+}
+
+.cdk-overlay-pane{
+  font-family: Laksaman;
+}
+
+mat-form-field{
+  margin: 10px;
+  font-family: Laksaman;
+}
+
+#phone-number-start{
+  display:inline-block !important;
+  float: left !important;
 }

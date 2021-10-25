@@ -15,6 +15,9 @@ import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dia
 import {DialogOverview} from './user-dialog/user-dialog.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatButtonModule} from "@angular/material/button";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatIconModule} from "@angular/material/icon";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -23,23 +26,26 @@ import {MatButtonModule} from "@angular/material/button";
     UserTableComponent,
     DialogOverview
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatTableModule,
-    HttpClientModule,
-    MatTableModule,
-    MatSortModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDialogModule,
-    MatPaginatorModule,
-    FormsModule,
-    MatDatepickerModule,
-    MatButtonModule
-  ],
-  providers: [HttpClient, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
+    imports: [
+        BrowserModule,
+        MatNativeDateModule,
+        BrowserAnimationsModule,
+        MatTableModule,
+        HttpClientModule,
+        MatTableModule,
+        MatSortModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDialogModule,
+        MatPaginatorModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatIconModule
+    ],
+  providers: [HttpClient],
   bootstrap: [AppComponent],
   entryComponents: [UserTableComponent]
 })
