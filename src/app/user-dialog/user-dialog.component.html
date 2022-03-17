@@ -23,14 +23,9 @@
 
   <mat-form-field appearance="standard">
     <mat-label>Дата рождения</mat-label>
-    <input matInput [formControl]="date" [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker">{{age}}</mat-datepicker-toggle>
+    <input matInput [matDatepickerFilter]="filterFunc" placeholder="MM/DD/YYYY" maxlength="10" data-inputmask-inputformat="MM/DD/YYYY" [formControl]="date" [matDatepicker]="picker">
+    <!--<mat-datepicker-toggle matSuffix [for]="picker">{{age}}</mat-datepicker-toggle>-->
     <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field floatLabel="always" appearance="standard">
-    <mat-label>Полных лет</mat-label>
-    <input type="number" matInput min="14" max="100" [formControl]="age" [minLength]="2" [maxLength]="3">
   </mat-form-field>
 
   <mat-form-field floatLabel="always" appearance="standard">

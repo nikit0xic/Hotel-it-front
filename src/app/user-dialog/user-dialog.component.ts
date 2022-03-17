@@ -10,7 +10,6 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
   styleUrls: ['./user-dialog.component.css']
 })
   export class DialogOverview implements OnInit {
-  public birthdate: Date | undefined;
 
   user?: User
   notBlankValidator = (control: AbstractControl) => {
@@ -21,18 +20,22 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
   middleName = new FormControl('');
   date = new FormControl('', [Validators.required])
   role = new FormControl('RECEPTIONIST',[Validators.required]);
-  age = new FormControl('',[Validators.required]);
   address = new FormControl('',[Validators.required]);
   phone = new FormControl('',[Validators.required]);
   email = new FormControl('',[Validators.required]);
 
+  filterFunc = (date: any): boolean => {
+    let last: Date = new Date();
+    last.setFullYear(last.getFullYear()-14)
+    return date<last
+  }
+
   formGroup = new FormGroup({
     name: this.name,
-    lestName: this.lastName,
+    lastName: this.lastName,
     middleName: this.middleName,
     date: this.date,
     role: this.role,
-    age: this.age,
     address:this.address,
     phone:this.phone,
     email:this.email
@@ -51,8 +54,10 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
   }
 
   ngOnInit() {
-    if (this.user)
+    if (this.user) {
+      this.user.date = new Date(this.user.date)
       this.formGroup.patchValue(this.user);
+    }
   }
 
   save() {
@@ -63,15 +68,16 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
       middleName: this.middleName.value,
       date:this.date.value,
       role:this.role.value,
-      age:this.age.value,
       address:this.address.value,
       phone:this.phone.value,
       email:this.email.value
     }
-    if (this.user)
-      this.httpService.update(this.user.id, data)
-    else
+    if (this.user){
+      this.httpService.update(this.user.id,data).subscribe(v => this.dialogRef.close(v))
+    }
+    else{
       this.httpService.save(data).subscribe(v => this.dialogRef.close(v))
+    }
   }
 }
 

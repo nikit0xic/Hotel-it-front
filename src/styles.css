@@ -1,110 +1,92 @@
-body{
-  background-image: url(src/assets/seabottom2.jpg);
+
+html, body{
+  width: 100%;
+  margin: 0;
 }
 
-.site-header{
-  height: 35px;
-  border-bottom: 1px solid lightgray;
-  -webkit-box-shadow: inset 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
-  -moz-box-shadow: inset 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
-  box-shadow: inset 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
-  background-color: #eaeaea;
+/*.site-header{*/
+/*  height: 35px;*/
+/*  border-bottom: 1px solid lightgray;*/
+/*  -webkit-box-shadow: inset 0px 5px 5px -5px rgba(34, 60, 80, 0.6);*/
+/*  -moz-box-shadow: inset 0px 5px 5px -5px rgba(34, 60, 80, 0.6);*/
+/*  box-shadow: inset 0px 5px 5px -5px rgba(34, 60, 80, 0.6);*/
+/*  background-color: #eaeaea;*/
 
-}
+/*}*/
 
-.menu-header-element{
-  text-decoration: none;
-  color: #333333;
-  padding-top: 5px;
-  font-family:Laksaman;
-  font-size:20px;
-  border-left: 1px solid lightgray;
-  float: left;
-  width: 10%;
-  height: 91%;
-  text-align:center;
-}
+/*.menu-header-element{*/
+/*  text-decoration: none;*/
+/*  color: #333333;*/
+/*  padding-top: 5px;*/
+/*  font-family:Laksaman;*/
+/*  font-size:20px;*/
+/*  border-left: 1px solid lightgray;*/
+/*  float: left;*/
+/*  width: 10%;*/
+/*  height: 91%;*/
+/*  text-align:center;*/
+/*}*/
 
-#header-menu-selector{
-  border-right: 1px solid lightgray;
-}
+/*#header-menu-selector{*/
+/*  border-right: 1px solid lightgray;*/
+/*}*/
 
-#logotype{
-  font-size: 30px;
-  font-family:Laksaman;
-  font-weight: bold;
-}
+/*#logotype{*/
+/*  font-size: 30px;*/
+/*  font-family:Laksaman;*/
+/*  font-weight: bold;*/
+/*}*/
 
-#logout-menu-button{
-  float:right;
-}
-
-
+/*#logout-menu-button{*/
+/*  float:right;*/
+/*}*/
 
 
+/*.paginator{*/
+/*  background-color: #eaeaea;*/
+/*}*/
+
+/*.author-info{*/
+/*  color: #000000;*/
+/*  text-decoration:none;*/
+/*  font-family:Laksaman;*/
+/*}*/
 
 
+/*.login-text{*/
+/*  font-family: Laksaman;*/
+/*}*/
 
-.paginator{
-  background-color: #eaeaea;
-}
+/*.password-text{*/
+/*  font-family: Laksaman;*/
+/*}*/
 
-.author-info{
-  color: #000000;
-  text-decoration:none;
-  font-family:Laksaman;
-}
+/*.button-login{*/
+/*  size: 20px;*/
+/*}*/
 
+/*.link-forgot-pass{*/
+/*  float:right;*/
+/*}*/
 
-.login-text{
-  font-family: Laksaman;
-}
+/*.my-app{}*/
 
-.login-input{
+/*.table-inner{*/
+/*  border: 1px lightgray solid;*/
+/*  box-shadow: inset 0 0 2px rgba(0,0,0,0.5);*/
+/*  border-radius: 5px;*/
+/*  background-color: #f5f5f5;*/
+/*  margin: 21px;*/
+/*  padding: 10px;*/
+/*}*/
 
-}
+/*.button{*/
+/*  border: 1px lightgray solid !important;*/
+/*  box-shadow: 0 0 2px rgba(0,0,0,0.5) !important;*/
+/*  border-radius: 2px !important;*/
+/*}*/
 
-.password-text{
-  font-family: Laksaman;
-}
+/*.table-menu-bar{*/
+/*  margin: 10px;*/
+/*}*/
 
-.password-input{
-
-}
-
-.button-login{
-  size: 20px;
-}
-
-.link-forgot-pass{
-  float:right;
-}
-
-.my-app{
-  margin: 21px;
-  font-size: 30px;
-  font-family: Loma;
-}
-
-.table-inner{
-  border: 1px lightgray solid;
-  box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
-  border-radius: 5px;
-  background-color: #f5f5f5;
-  margin: 21px;
-  padding: 10px;
-}
-
-.button{
-  border: 1px lightgray solid !important;
-  box-shadow: 0 0 2px rgba(0,0,0,0.5) !important;
-  border-radius: 2px !important;
-
-}
-
-.table-menu-bar{
-  margin: 10px;
-}
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

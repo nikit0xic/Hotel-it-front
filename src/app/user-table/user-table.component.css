@@ -123,14 +123,6 @@ tr.mat-header-row{
   border-left: thin solid #e0e0e0;
 }
 
-.age-column{
-  margin-left: auto;
-  margin-right: auto;
-  width: 10px;
-  border-bottom: thin solid #e0e0e0;
-  border-top: thin solid #e0e0e0;
-  border-left: thin solid #e0e0e0;
-}
 
 .date-column{
 

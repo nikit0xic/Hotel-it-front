@@ -1,8 +1,81 @@
-<user-table><!--(updateUser)="openDialog($event)"--></user-table>
-<div class="table-menu-bar">
-  <button class="button" mat-raised-button (click)="openDialog()" >Create user</button>
-  <button class="button" mat-raised-button>Delete user</button>
-</div>
+<div id="app">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <img href="#" src="favicon.ico" style="height: 70px; width: 70px;margin-right: 30px" >
+      <a href="#" class="navbar-brand">Hotel-IT<br><div style="font-size: 24px">portal</div></a>
+
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item">
+          <a href="/home" class="nav-link" routerLink="home">Home </a>
+        </li>
+        <li class="nav-item" *ngIf="showAdminBoard">
+          <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+        </li>
+        <li class="nav-item" *ngIf="showModeratorBoard">
+          <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+        </li>
+        <li class="nav-item">
+          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-link" routerLink="login">Login</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" (click)="logout()">LogOut</a>
+        </li>
+      </ul>
+    </nav>
+
+  <div class="homepage-text">
+      <div class="left-column">
+        <div class="left-column-content">
+          <p style="font-weight: bold">
+            Добро пожаловать на portal.hotel.it!
+          </p>
+          <p>
+            Если вы подали заявку на регистрацию, ожидайте пока ваши данные будут проверены, и ваша учетная запись будет создана. Уведомление об этом вы получите по почте.
+          </p>
+          <p>
+            Чтобы войти, введите ваш адрес электронной почты и пароль, который вы получили в письме:
+            Если вы забыли пароль, нажмите на кнопку ‘Забыли пароль’.
+          </p>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="right-column-content">
+          <p>
+            <strong>Hotel-IT</strong> - центр исследований, мониторинга, анализа и учета основной деятельности нашей  сети отелей.
+          </p>
+          <p>
+            Ключевое направление деятельности портала - автоматизированное, централизованое проведение процессов основной деятельности нашего бизнеса  для улучшения качества и облегчения работы наших сотрудников.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+<!--<user-table (updateTable)="updateTable()"></user-table>-->
+<!--<div class="table-menu-bar">-->
+<!--  <button class="button" mat-raised-button (click)="openDialog()" >Создать пользователя</button>-->
+<!--  <button class="button" mat-raised-button>Удалить выбраных пользователей</button>-->
+<!--</div>-->
 
 
 

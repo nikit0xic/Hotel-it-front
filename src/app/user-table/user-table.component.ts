@@ -1,14 +1,23 @@
-import {AfterViewInit, Component, OnInit, Output, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import {User} from "../../model/user";
 import {ApiService} from "../../services/api.service";
 import {Sort} from "@angular/material/sort";
-import {PageEvent} from "@angular/material/paginator";
-import {MatCheckbox} from "@angular/material/checkbox";
 import {SelectionModel} from "@angular/cdk/collections";
 import {MatTableDataSource} from "@angular/material/table";
-import {take} from "rxjs/operators";
+import {DialogOverview} from "../user-dialog/user-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'user-table',
   templateUrl: './user-table.component.html',
   styleUrls: ['./user-table.component.css']
@@ -18,12 +27,10 @@ export class UserTableComponent implements OnInit {
 
   displayedColumns: string[] = [
     'select',
-    'id',
     'name',
     'lastName',
     'middleName',
     'date',
-    'age',
     'role',
     'address',
     'phone',
@@ -34,14 +41,15 @@ export class UserTableComponent implements OnInit {
   sortColumn: string = "name"
   isAsc = true;
   limit = 10;
-  checked: any = [];
   length?: number = 50;
   page = 0;
   users: User[]=[];
   myDataArray=this.users;
 
+  constructor(  private httpService: ApiService,
+                public dialog: MatDialog
+  ){}
 
-  constructor(private httpService: ApiService){}
   ngOnInit(){
    this.getUsers()
   }
@@ -81,14 +89,11 @@ export class UserTableComponent implements OnInit {
     return numSelected === numRows;
   }
 
-  removeSelectedRows(){
-    this.selection.selected.forEach(item => {
-      let index: number = this.myDataArray.findIndex(d => d === item);
-      console.log(this.myDataArray.findIndex(d => d === item));
-      this.myDataArray.splice(index,1)
-      this.dataSource = new MatTableDataSource<User>(this.myDataArray);
+  @Output() updateTable = new EventEmitter<any>();
+  deleteRow(id: number){
+    this.httpService.delete(id).subscribe(v=> {
+      this.updateTable.emit()
     });
-    this.selection = new SelectionModel<User>(true,[]);
   }
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
@@ -97,4 +102,14 @@ export class UserTableComponent implements OnInit {
       this.selection.clear() :
       this.dataSource.data.forEach(row => this.selection.select(row));
   }
+
+  openDialogForUpdate(user: User):void{
+    const dialogRef = this.dialog.open(DialogOverview, {data: {user: user}});
+    dialogRef.afterClosed()
+      .subscribe(v => {
+        if(v)
+          this.getUsers();
+      })
+  }
+
 }

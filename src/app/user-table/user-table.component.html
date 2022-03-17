@@ -1,7 +1,7 @@
 <div><table mat-table *ngIf="myDataArray" matSort [dataSource]="myDataArray"  class="user-table" [matSortDisableClear]="true" (matSortChange)="sortData($event)">
 
   <ng-container matColumnDef="select">
-    <th class="select-column-header table-header" mat-header-cell *matHeaderCellDef mat-sort-header>
+    <th class="select-column-header table-header" mat-header-cell *matHeaderCellDef>
       <mat-checkbox (change)="$event ? masterToggle() : null"
                     [checked]="selection.hasValue() && isAllSelected()"
                     [indeterminate]="selection.hasValue() && !isAllSelected()">
@@ -15,48 +15,40 @@
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="id">
-    <th class="id-column table-header" mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let user"> {{user.id}} </td>
-  </ng-container>
+
 
   <ng-container matColumnDef="name">
-    <th class="name-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Name </th>
+    <th class="name-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Имя </th>
     <td mat-cell class="table-entity" *matCellDef="let user"> {{user.name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="lastName">
-    <th class="lastName-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Second </th>
+    <th class="lastName-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Фамилия </th>
     <td mat-cell class="table-entity" *matCellDef="let user"> {{user.lastName}} </td>
   </ng-container>
 
   <ng-container matColumnDef="middleName">
-    <th class="middleName-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Middle </th>
+    <th class="middleName-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Отчество </th>
     <td mat-cell class="table-entity" *matCellDef="let user"> {{user.middleName}} </td>
   </ng-container>
 
   <ng-container matColumnDef="date">
-    <th class="date-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Date </th>
+    <th class="date-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Дата рождения </th>
     <td mat-cell class="table-entity" *matCellDef="let user"> {{(user.date | date: 'dd.MM.yyyy') || 'N/A'}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="age">
-    <th class="age-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Age </th>
-    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.age}} </td>
-  </ng-container>
-
   <ng-container matColumnDef="role">
-    <th class="role-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Role </th>
+    <th class="role-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Должность </th>
     <td mat-cell class="table-entity" *matCellDef="let user"> {{user.role}} </td>
   </ng-container>
 
   <ng-container matColumnDef="address">
-    <th class="address-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Address </th>
+    <th class="address-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Адрес </th>
     <td mat-cell class="table-entity" *matCellDef="let user"> {{user.address}} </td>
   </ng-container>
 
   <ng-container matColumnDef="phone">
-    <th class="phone-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Phone </th>
+    <th class="phone-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Телефон </th>
     <td mat-cell class="table-entity" *matCellDef="let user"> {{user.phone}} </td>
   </ng-container>
 
@@ -69,8 +61,8 @@
     <th class="email-column table-header"  mat-header-cell *matHeaderCellDef>  </th>
     <td mat-cell class="table-entity" *matCellDef="let user">
       <div class>
-        <mat-icon>edit</mat-icon>
-        <mat-icon>delete</mat-icon>
+        <mat-icon style="cursor:pointer" (click)="openDialogForUpdate(user)">edit</mat-icon>
+        <mat-icon style="cursor:pointer" (click)="deleteRow(user.id)">delete</mat-icon>
       </div>
     </td>
   </ng-container>
@@ -84,6 +76,5 @@
   [pageSize]="10"
     [pageSizeOptions]="[ 10, 15, 20]"
     (page)="setPage($event)">
-
 </mat-paginator>
 </div>

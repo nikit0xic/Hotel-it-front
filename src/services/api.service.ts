@@ -23,12 +23,11 @@ export class ApiService {
     return this.http.post(this.userUrl,user,{responseType: 'text'});
   }
 
-  public delete(user:any){
-    return this.http.delete(this.userUrl,user);
+  public delete(id: number){
+    return this.http.delete(this.userUrl+'/'+id, {responseType: 'text'});
   }
 
-  public update(id: number, data: any){
-    return this.http.put(this.userUrl  +id, data);
+  public update(id:number, data: any){
+    return this.http.put(this.userUrl+'/'+id , data,{responseType:'text'});
   }
-
 }

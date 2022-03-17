@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {HttpClient} from "@angular/common/http";
-import { HttpClientModule } from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
@@ -18,34 +18,56 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatIconModule} from "@angular/material/icon";
 import {MatNativeDateModule} from "@angular/material/core";
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { BoardManagerComponent } from './board-manager/board-manager.component';
+import {AppRoutingModule} from "../app-routing.module";
+import {authInterceptorProviders} from "./helpers/auth.interceptor";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserTableComponent,
-    DialogOverview
+    DialogOverview,
+    WelcomePageComponent,
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent,
+    HomeComponent,
+    BoardAdminComponent,
+    BoardUserComponent,
+    BoardManagerComponent,
+
   ],
-    imports: [
-        BrowserModule,
-        MatNativeDateModule,
-        BrowserAnimationsModule,
-        MatTableModule,
-        HttpClientModule,
-        MatTableModule,
-        MatSortModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatDialogModule,
-        MatPaginatorModule,
-        FormsModule,
-        MatDatepickerModule,
-        MatButtonModule,
-        MatCheckboxModule,
-        MatIconModule
-    ],
-  providers: [HttpClient],
+  imports: [
+    BrowserModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    HttpClientModule,
+    MatTableModule,
+    MatSortModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatPaginatorModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatTabsModule,
+    AppRoutingModule
+  ],
+  providers: [HttpClient, authInterceptorProviders],
   bootstrap: [AppComponent],
   entryComponents: [UserTableComponent]
 })
