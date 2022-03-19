@@ -1,0 +1,76 @@
+/*PAGE TEXT*/
+
+.homepage-text{
+  margin-top: 4%;
+  font-family: Montserrat, serif ;
+}
+
+.right-column{
+  display: inline-block;
+  font-size: 24px;
+  width: 50%;
+  height: 100%;
+}
+
+.right-column-content{
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 100%;
+  height: 100%;
+}
+
+.left-column{
+  font-size: 24px;
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+}
+
+.left-column-content{
+  padding-left: 30%;
+  width: 100%;
+  height: 100%;
+}
+
+
+/*INPUT FORMS*/
+
+.col-md-12{
+  font-family: Montserrat, serif ;
+  margin-top: 2%;
+  margin-left: 14%;
+  float: left;
+  width: 30%;
+}
+
+.card{
+  border-color: white;
+}
+
+.btn{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: black;
+
+  height: 50px;
+  width: 50%;
+
+  background-color: #AFBDEF;
+  border-color: #AFBDEF;
+  margin-top: 35px;
+}
+
+.form-control{
+  font-weight: 700;
+  height: 50px;
+}
+
+.form-group{
+  color: grey;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+

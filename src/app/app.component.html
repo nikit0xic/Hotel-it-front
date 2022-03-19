@@ -1,3 +1,5 @@
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
 <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <img href="#" src="favicon.ico" style="height: 70px; width: 70px;margin-right: 30px" >
@@ -20,7 +22,7 @@
 
       <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
         <li class="nav-item">
-          <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+          <a href="/register" class="nav-link" routerLink="register">Register</a>
         </li>
         <li class="nav-item">
           <a href="/login" class="nav-link" routerLink="login">Login</a>
@@ -37,33 +39,33 @@
       </ul>
     </nav>
 
-  <div class="homepage-text">
-      <div class="left-column">
-        <div class="left-column-content">
-          <p style="font-weight: bold">
-            Добро пожаловать на portal.hotel.it!
-          </p>
-          <p>
-            Если вы подали заявку на регистрацию, ожидайте пока ваши данные будут проверены, и ваша учетная запись будет создана. Уведомление об этом вы получите по почте.
-          </p>
-          <p>
-            Чтобы войти, введите ваш адрес электронной почты и пароль, который вы получили в письме:
-            Если вы забыли пароль, нажмите на кнопку ‘Забыли пароль’.
-          </p>
-        </div>
-      </div>
+<!--  <div class="homepage-text">-->
+<!--      <div class="left-column">-->
+<!--        <div class="left-column-content">-->
+<!--          <p style="font-weight: bold">-->
+<!--            Добро пожаловать на portal.hotel.it!-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            Если вы недавно подали заявку на регистрацию, ожидайте пока ваши данные будут проверены, и ваша учетная запись будет создана. Уведомление об этом вы получите на почту в течении двух рабочих дней.-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            Чтобы войти, введите ваш адрес электронной почты и пароль, который вы получили от администратора:-->
+<!--            Если вы забыли пароль оповестите об этом администратора.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="right-column">
-        <div class="right-column-content">
-          <p>
-            <strong>Hotel-IT</strong> - центр исследований, мониторинга, анализа и учета основной деятельности нашей  сети отелей.
-          </p>
-          <p>
-            Ключевое направление деятельности портала - автоматизированное, централизованое проведение процессов основной деятельности нашего бизнеса  для улучшения качества и облегчения работы наших сотрудников.
-          </p>
-        </div>
-      </div>
-    </div>
+<!--      <div class="right-column">-->
+<!--        <div class="right-column-content">-->
+<!--          <p>-->
+<!--            <strong>Hotel-IT</strong> - центр исследований, мониторинга, анализа и учета основной деятельности нашей  сети отелей.-->
+<!--          </p>-->
+<!--          <p>-->
+<!--            Ключевое направление деятельности портала - автоматизированное, централизованое проведение процессов основной деятельности нашего бизнеса  для улучшения качества и облегчения работы наших сотрудников.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <div class="container">
       <router-outlet></router-outlet>

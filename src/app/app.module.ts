@@ -18,7 +18,6 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatIconModule} from "@angular/material/icon";
 import {MatNativeDateModule} from "@angular/material/core";
-import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -36,7 +35,6 @@ import {authInterceptorProviders} from "./helpers/auth.interceptor";
     AppComponent,
     UserTableComponent,
     DialogOverview,
-    WelcomePageComponent,
     RegisterComponent,
     LoginComponent,
     ProfileComponent,

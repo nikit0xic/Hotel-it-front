@@ -4,7 +4,6 @@ import { TokenStorageService } from 'src/services/token-storage.service';
 import {MatDialog} from "@angular/material/dialog";
 import {DialogOverview} from "./user-dialog/user-dialog.component";
 import {UserTableComponent} from "./user-table/user-table.component";
-import {WelcomePageComponent} from "./welcome-page/welcome-page.component";
 
 @Component({
   selector: 'my-app',
