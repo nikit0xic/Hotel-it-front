@@ -11,7 +11,7 @@ export class BoardManagerComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getAdminBoard().subscribe(
+    this.userService.getManagerBoard().subscribe(
       data => {
         this.content = data;
       },

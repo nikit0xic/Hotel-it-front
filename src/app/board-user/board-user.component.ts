@@ -10,7 +10,7 @@ export class BoardUserComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getAdminBoard().subscribe(
+    this.userService.getUserBoard().subscribe(
       data => {
         this.content = data;
       },
