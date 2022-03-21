@@ -112,4 +112,15 @@ export class UserTableComponent implements OnInit {
       })
   }
 
+  @ViewChild(UserTableComponent) tableComponent?: UserTableComponent
+  openDialog():void {
+    const dialogRef = this.dialog.open(DialogOverview);
+    dialogRef.afterClosed()
+      .subscribe(v => {
+        if (v){
+          this.tableComponent?.getUsers();
+        }
+      });
+  }
+
 }
