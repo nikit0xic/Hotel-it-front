@@ -31,7 +31,7 @@ export class UserTableComponent implements OnInit {
     'lastName',
     'middleName',
     'date',
-    'role',
+    'roles',
     'address',
     'phone',
     'email',

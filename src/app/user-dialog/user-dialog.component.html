@@ -53,6 +53,17 @@
     <mat-label>Почта</mat-label>
     <input matInput [formControl]="email" placeholder="email@example.com" type="email">
   </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="standard">
+    <mat-label>Логин</mat-label>
+    <input matInput [formControl]="username" placeholder="yourUsername">
+  </mat-form-field>
+
+  <mat-form-field floatLabel="always" appearance="standard">
+    <mat-label>Пароль</mat-label>
+    <input matInput [formControl]="password">
+  </mat-form-field>
+
 </div>
 
 <div mat-dialog-actions>

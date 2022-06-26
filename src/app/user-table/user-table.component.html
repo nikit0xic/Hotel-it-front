@@ -1,4 +1,4 @@
-<div><table mat-table *ngIf="myDataArray" matSort [dataSource]="myDataArray"  class="user-table" [matSortDisableClear]="true" (matSortChange)="sortData($event)">
+<table mat-table *ngIf="myDataArray" matSort [dataSource]="myDataArray"  class="user-table" [matSortDisableClear]="true" (matSortChange)="sortData($event)">
 
   <ng-container matColumnDef="select">
     <th class="select-column-header table-header" mat-header-cell *matHeaderCellDef>
@@ -37,9 +37,9 @@
     <td mat-cell class="table-entity" *matCellDef="let user"> {{(user.date | date: 'dd.MM.yyyy') || 'N/A'}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="role">
+  <ng-container matColumnDef="roles">
     <th class="role-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Должность </th>
-    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.role}} </td>
+    <td mat-cell class="table-entity" *matCellDef="let user"> {{user.roles}} </td>
   </ng-container>
 
   <ng-container matColumnDef="address">
@@ -81,4 +81,3 @@
     <button class="button create-button" mat-raised-button (click)="openDialog()" >Создать нового</button>
     <button class="button delete-button" mat-raised-button>Удалить выбраных</button>
   </div>
-</div>

@@ -7,9 +7,6 @@
 
 }
 
-.mat-header-row{}
-
-
 .table-header{
   text-align: center;
 
@@ -40,22 +37,19 @@ td{
 
 }
 
-.mat-sort-header-content{}
 
 th{
   font-size: 20px;
   font-family: Montserrat, sans-serif;
-
   background-color: #eaeaea;
   color:#333333;
-  text-align: center !important;
-
-  border-bottom: thin solid #e0e0e0;
-  border-top: thin solid #e0e0e0;
-  border-left: thin solid #e0e0e0;
-  border-right: thin solid #e0e0e0;
 
 }
+
+.mat-sort-header-container{
+  justify-content: center;
+}
+
 
 tr.mat-header-row{
   height: 25px;
@@ -63,7 +57,7 @@ tr.mat-header-row{
   place-content: center !important;
 }
 
-.table-entity{
+th, .table-entity{
   border: thin solid #e0e0e0;
 }
 

@@ -23,6 +23,8 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
   address = new FormControl('',[Validators.required]);
   phone = new FormControl('',[Validators.required]);
   email = new FormControl('',[Validators.required]);
+  username = new FormControl('',[Validators.required]);
+  password = new FormControl('',[Validators.required]);
 
   filterFunc = (date: any): boolean => {
     let last: Date = new Date();
@@ -38,7 +40,9 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
     role: this.role,
     address:this.address,
     phone:this.phone,
-    email:this.email
+    email:this.email,
+    username:this.username,
+    password:this.password
   });
 
   constructor(
@@ -70,8 +74,11 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
       role:this.role.value,
       address:this.address.value,
       phone:this.phone.value,
-      email:this.email.value
+      email:this.email.value,
+      username:this.username.value,
+      password:this.password.value
     }
+
     if (this.user){
       this.httpService.update(this.user.id,data).subscribe(v => this.dialogRef.close(v))
     }

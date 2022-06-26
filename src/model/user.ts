@@ -5,9 +5,11 @@ export class User{
               public lastName:string,
               public middleName:string,
               public date: Date,
-              public role:string,
+              public roles:any,
               public address:string,
               public phone:string,
-              public email:string){
+              public email:string,
+              public username:string,
+              public password:string){
   }
 }
