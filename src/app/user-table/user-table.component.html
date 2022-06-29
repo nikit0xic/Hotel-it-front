@@ -1,4 +1,4 @@
-<table mat-table *ngIf="myDataArray" matSort [dataSource]="myDataArray"  class="user-table" [matSortDisableClear]="true" (matSortChange)="sortData($event)">
+<table mat-table *ngIf="myDataArray" matSort [dataSource]="myDataArray"  class="user-table" [matSortDisableClear]="true">
 
   <ng-container matColumnDef="select">
     <th class="select-column-header table-header" mat-header-cell *matHeaderCellDef>
@@ -37,7 +37,7 @@
     <td mat-cell class="table-entity" *matCellDef="let user"> {{(user.date | date: 'dd.MM.yyyy') || 'N/A'}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="roles">
+  <ng-container *ngIf="withJobPositions" matColumnDef="roles">
     <th class="role-column table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Должность </th>
     <td mat-cell class="table-entity" *matCellDef="let user"> {{user.roles}} </td>
   </ng-container>

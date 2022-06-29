@@ -1,46 +1,47 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <img href="#" src="favicon.ico" style="height: 70px; width: 70px;margin-right: 30px" >
       <a href="#" class="navbar-brand">Hotel-IT<br><div style="font-size: 24px">portal</div></a>
 
-      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <ul class="navbar-nav ml-auto option-panel" *ngIf="isLoggedIn">
         <li class="nav-item">
-          <a href="/home" class="nav-link" routerLink="home">Home </a>
-        </li>
-        <li class="nav-item" *ngIf="showAdminBoard">
-          <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-        </li>
-        <li class="nav-item" *ngIf="showModeratorBoard">
-          <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+          <a class="nav-link" >Рабочее время</a>
         </li>
         <li class="nav-item">
-          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-        </li>
-      </ul>
-
-      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-        <li class="nav-item">
-          <a href="/register" class="nav-link" routerLink="register">Register</a>
+          <a class="nav-link" [matMenuTriggerFor]="servicesMenu" >Услуги</a>
         </li>
         <li class="nav-item">
-          <a href="/login" class="nav-link" routerLink="login">Login</a>
+          <a class="nav-link" [matMenuTriggerFor]="profileMenu" >{{username}}</a>
         </li>
-      </ul>
-
-      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-        <li class="nav-item">
-          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-        </li>
-        <li class="nav-item">
-          <a href class="nav-link" (click)="logout()">LogOut</a>
-        </li>
+        <mat-menu #profileMenu="matMenu"  xPosition="before">
+          <button [routerLink]="'/profile'" mat-menu-item>
+            <mat-icon>assignment_ind</mat-icon>
+            <span>Мой профиль</span>
+          </button>
+          <button (click)="isLoggedIn=false;showEmployeesList=false" mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Выход</span>
+          </button>
+        </mat-menu>
+        <mat-menu #servicesMenu="matMenu" xPosition="before">
+          <button [routerLink]="'/employees'" mat-menu-item>
+            <span>Учет сотрудников</span>
+          </button>
+          <button [routerLink]="'/clients'" mat-menu-item>
+            <span>Работа с клиентами</span>
+          </button>
+          <button [routerLink]="'/rooms'" mat-menu-item>
+            <span>Бронирование номеров</span>
+          </button>
+        </mat-menu>
       </ul>
     </nav>
 
-    <div class="container">
-      <router-outlet></router-outlet>
+    <div class="container content">
+      <app-login *ngIf="!isLoggedIn" (login)="setProfileInfo($event)"></app-login>
+      <router-outlet *ngIf="isLoggedIn"></router-outlet>
     </div>
 
   </div>

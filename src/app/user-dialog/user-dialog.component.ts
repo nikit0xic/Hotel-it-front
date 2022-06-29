@@ -26,10 +26,9 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
   username = new FormControl('',[Validators.required]);
   password = new FormControl('',[Validators.required]);
 
+  last = new Date()
   filterFunc = (date: any): boolean => {
-    let last: Date = new Date();
-    last.setFullYear(last.getFullYear()-14)
-    return date<last
+    return date<this.last
   }
 
   formGroup = new FormGroup({
@@ -41,8 +40,8 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
     address:this.address,
     phone:this.phone,
     email:this.email,
-    username:this.username,
-    password:this.password
+ //   username:this.username,
+  //  password:this.password
   });
 
   constructor(
@@ -62,6 +61,7 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
       this.user.date = new Date(this.user.date)
       this.formGroup.patchValue(this.user);
     }
+    this.last.setFullYear(this.last.getFullYear()-14)
   }
 
   save() {
@@ -78,13 +78,15 @@ import {AbstractControl, AbstractControlOptions, FormControl, FormGroup, Validat
       username:this.username.value,
       password:this.password.value
     }
+    //
+    // if (this.user){
+    //   this.httpService.update(this.user.id,data).subscribe(v => this.dialogRef.close(v))
+    // }
+    // else{
+    //   this.httpService.save(data).subscribe(v => this.dialogRef.close(v))
+    // }
 
-    if (this.user){
-      this.httpService.update(this.user.id,data).subscribe(v => this.dialogRef.close(v))
-    }
-    else{
-      this.httpService.save(data).subscribe(v => this.dialogRef.close(v))
-    }
+    this.dialogRef.close(data)
   }
 }
 

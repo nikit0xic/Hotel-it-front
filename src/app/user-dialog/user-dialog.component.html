@@ -1,6 +1,9 @@
-<h1 mat-dialog-title>Создание пользователя</h1>
+<div class="dialog-content">
+  <div class="flex">
+    <h1 mat-dialog-title>Создание пользователя</h1>
+    <mat-icon class="close" (click)="onNoClick()">close</mat-icon>
+  </div>
 <div mat-dialog-content>
-  <p>Заполните поля</p>
 
   <mat-form-field appearance="standard">
     <mat-label>Имя</mat-label>
@@ -23,9 +26,9 @@
 
   <mat-form-field appearance="standard">
     <mat-label>Дата рождения</mat-label>
-    <input matInput [matDatepickerFilter]="filterFunc" placeholder="MM/DD/YYYY" maxlength="10" data-inputmask-inputformat="MM/DD/YYYY" [formControl]="date" [matDatepicker]="picker">
-    <!--<mat-datepicker-toggle matSuffix [for]="picker">{{age}}</mat-datepicker-toggle>-->
-    <mat-datepicker #picker></mat-datepicker>
+    <input matInput [matDatepickerFilter]="filterFunc" placeholder="MM.DD.YYYY" maxlength="10" data-inputmask-inputformat="MM.DD.YYYY" [formControl]="date" [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker startView="multi-year" [startAt]="last" #picker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field floatLabel="always" appearance="standard">
@@ -54,19 +57,10 @@
     <input matInput [formControl]="email" placeholder="email@example.com" type="email">
   </mat-form-field>
 
-  <mat-form-field floatLabel="always" appearance="standard">
-    <mat-label>Логин</mat-label>
-    <input matInput [formControl]="username" placeholder="yourUsername">
-  </mat-form-field>
-
-  <mat-form-field floatLabel="always" appearance="standard">
-    <mat-label>Пароль</mat-label>
-    <input matInput [formControl]="password">
-  </mat-form-field>
-
 </div>
 
 <div mat-dialog-actions>
   <button [disabled]="formGroup.invalid" (click)="save()" mat-button >Сохранить</button>
   <button mat-button (click)="onNoClick()">Отмена</button>
+</div>
 </div>

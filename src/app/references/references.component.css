@@ -1,0 +1,25 @@
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reference-card{
+  width: 50%;
+  height: 300px;
+  min-width: 45%;
+}
+.reference-card{
+}
+
+
+.mat-card-header{
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 2.5% 10px;
+  background: #ddd;
+  padding: 10px;
+}
+
+.refs{
+  font-family: Montserrat, serif ;
+}

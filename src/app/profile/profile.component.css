@@ -1,3 +1,35 @@
 .container{
   font-family: Montserrat, sans-serif;
 }
+
+h5,h6{
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
+.mat-form-field{
+  width: 80%;
+}
+
+.extra-info>p{
+  margin: 25px auto;
+}
+.photo{
+  text-align: center;
+}
+ .upload{
+   border: 1px solid rgba(0, 0, 0, 0.27);
+   margin: 20px auto;
+ }
+
+ .submit{
+   background-color: #afb2ee;
+   margin: 30px auto;
+   padding: 5px 60px
+ }
+
+ a{
+   color: #3000a0;
+   text-decoration: none;
+   cursor: pointer;
+ }

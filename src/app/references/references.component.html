@@ -1,0 +1,11 @@
+<mat-card class="refs">
+    <mat-card-header class="ref-type-header"><h4>Отпуск</h4></mat-card-header>
+  <div  class="flex">
+    <app-reference-card class="reference-card" *ngFor="let ref of references"
+                        [title]="ref.title" [content]="ref.content">
+
+    </app-reference-card>
+  </div>
+
+</mat-card>
+

@@ -23,12 +23,23 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { Employees } from './employees/employees.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { BoardManagerComponent } from './board-manager/board-manager.component';
 import {AppRoutingModule} from "../app-routing.module";
 import {authInterceptorProviders} from "./helpers/auth.interceptor";
+import {MatMenuModule} from "@angular/material/menu";
+import { RoadmapComponent } from './roadmap/roadmap.component';
+import {FullCalendarModule} from "@fullcalendar/angular";
+import resourceTimeline from '@fullcalendar/resource-timeline';
+import {MatCardModule} from "@angular/material/card";
+import { ClientsListComponent } from './clients-list/clients-list.component';
+import { ReferencesComponent } from './references/references.component';
+import { ReferenceCardComponent } from './reference-card/reference-card.component';
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  resourceTimeline
+]);
 
 @NgModule({
   declarations: [
@@ -39,10 +50,13 @@ import {authInterceptorProviders} from "./helpers/auth.interceptor";
     LoginComponent,
     ProfileComponent,
     HomeComponent,
-    BoardAdminComponent,
+    Employees,
     BoardUserComponent,
     BoardManagerComponent,
-
+    RoadmapComponent,
+    ClientsListComponent,
+    ReferencesComponent,
+    ReferenceCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +77,10 @@ import {authInterceptorProviders} from "./helpers/auth.interceptor";
     MatCheckboxModule,
     MatIconModule,
     MatTabsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatMenuModule,
+    FullCalendarModule,
+    MatCardModule
   ],
   providers: [HttpClient, authInterceptorProviders],
   bootstrap: [AppComponent],

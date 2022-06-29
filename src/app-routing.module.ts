@@ -7,17 +7,21 @@ import { HomeComponent } from 'src/app/home/home.component';
 import { ProfileComponent } from 'src/app/profile/profile.component';
 import { BoardUserComponent } from 'src/app/board-user/board-user.component';
 import { BoardManagerComponent } from 'src/app/board-manager/board-manager.component';
-import { BoardAdminComponent } from 'src/app/board-admin/board-admin.component';
+import { Employees } from 'src/app/employees/employees.component';
+import {RoadmapComponent} from "./app/roadmap/roadmap.component";
+import {ClientsListComponent} from "./app/clients-list/clients-list.component";
+import {ReferencesComponent} from "./app/references/references.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardManagerComponent },
-  { path: 'admin', component: BoardAdminComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: 'employees', component: Employees },
+  { path: 'clients', component: ClientsListComponent},
+  {path: 'rooms', component: RoadmapComponent},
+  {path: 'references', component: ReferencesComponent}
 ];
 
 @NgModule({

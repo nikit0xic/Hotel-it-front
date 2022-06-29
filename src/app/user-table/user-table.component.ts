@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
+  EventEmitter, Input,
   OnInit,
   Output,
   ViewChild
@@ -11,10 +11,10 @@ import {User} from "../../model/user";
 import {ApiService} from "../../services/api.service";
 import {Sort} from "@angular/material/sort";
 import {SelectionModel} from "@angular/cdk/collections";
-import {MatTableDataSource} from "@angular/material/table";
 import {DialogOverview} from "../user-dialog/user-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {PageEvent} from "@angular/material/paginator";
+import {AppComponent} from "../app.component";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,7 +31,7 @@ export class UserTableComponent implements OnInit {
     'lastName',
     'middleName',
     'date',
-    'roles',
+    //'roles',
     'address',
     'phone',
     'email',
@@ -41,66 +41,60 @@ export class UserTableComponent implements OnInit {
   sortColumn: string = "name"
   isAsc = true;
   limit = 10;
-  length?: number = 50;
+  length: number = AppComponent.employeesData.length;
   page = 0;
-  users: User[]=[];
+  users: User[]= AppComponent.employeesData;
   myDataArray=this.users;
 
-  constructor(  private httpService: ApiService,
-                public dialog: MatDialog
-  ){}
+  constructor(  public dialog: MatDialog){}
 
   ngOnInit(){
-   this.getUsers()
+    if (this.withJobPositions)
+      this.displayedColumns = [
+        'select',
+        'name',
+        'lastName',
+        'middleName',
+        'date',
+        'roles',
+        'address',
+        'phone',
+        'email',
+        'buttons'
+      ]
   }
 
-  getUsers(){
-    let data = {
-      sort: this.sortColumn,
-      isAsc: this.isAsc,
-      limit: this.limit,
-      page: this.page,
-    }
-    this.httpService.findAll(data)
-      .subscribe(value => {
-      this.myDataArray = value;
-    });
-  }
 
-  sortData(event: Sort){
-    this.isAsc = event.direction == "asc";
-    this.sortColumn = event.active;
-    this.getUsers()
-  }
+  @Input()
+  withJobPositions: boolean = false
 
-  setPage(event: PageEvent) {
+
+  setPage(event:any) {
     this.page = event.pageIndex;
     this.limit = event.pageSize;
-    this.getUsers()
   }
 
-  dataSource = new MatTableDataSource<User>(this.myDataArray);
+  dataSource = AppComponent.employeesData;
   selection = new SelectionModel<User>(true, []);
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
+    const numRows = this.dataSource.length
     return numSelected === numRows;
   }
 
   @Output() updateTable = new EventEmitter<any>();
   deleteRow(id: number){
-    this.httpService.delete(id).subscribe(v=> {
-      this.updateTable.emit()
-    });
+
+    this.dataSource = this.dataSource.splice(this.dataSource.map(e=>e.id).indexOf(id),1)
   }
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
       this.selection.clear() :
-      this.dataSource.data.forEach(row => this.selection.select(row));
+      this.dataSource.forEach(row => this.selection.select(row));
   }
 
   openDialogForUpdate(user: User):void{
@@ -108,7 +102,7 @@ export class UserTableComponent implements OnInit {
     dialogRef.afterClosed()
       .subscribe(v => {
         if(v)
-          this.getUsers();
+          user = v
       })
   }
 
@@ -116,9 +110,12 @@ export class UserTableComponent implements OnInit {
   openDialog():void {
     const dialogRef = this.dialog.open(DialogOverview);
     dialogRef.afterClosed()
-      .subscribe(v => {
+      .subscribe((v:User) => {
         if (v){
-          this.tableComponent?.getUsers();
+          v.id = this.dataSource.length
+          let tmp = this.dataSource.slice()
+          tmp.push(v)
+          this.dataSource =  tmp
         }
       });
   }

@@ -1,0 +1,22 @@
+.block-for-table{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 2%;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.16);
+  background-color: #FFFFFF;
+  padding: 0.8%;
+
+}
+
+.document-button{
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: black;
+  height: 50px;
+  background-color: #AFBDEF;
+  border-color: #AFBDEF;
+  border-radius: 5px !important;
+}

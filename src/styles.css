@@ -83,4 +83,32 @@
 /*.table-menu-bar{*/
 /*  margin: 10px;*/
 /*}*/
+.container{
+  width: 90%
+}
 
+.nav-link{
+  cursor: pointer;
+}
+
+.mat-menu-panel, .mat-menu-panel button{
+  background-color: #b0beef;
+}
+
+.mat-card{
+  margin: 2% 5%;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.15) !important;
+}
+.panel .mat-button {
+  padding: 5px 50px;
+  margin: 0 5px!important;
+  min-width: 100px;
+  background-color: #AFBDEF;
+  border-color: #AFBDEF;
+}
+
+.fc .fc-button-primary {
+  color: #3c3a3a!important;
+  background-color: #afbdef!important;
+  border-color: #afbdef!important;
+}

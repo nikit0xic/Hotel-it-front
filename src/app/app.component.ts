@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ApiService} from "../services/api.service";
 import { TokenStorageService } from 'src/services/token-storage.service';
+import {User} from "../model/user";
 
 @Component({
   selector: 'my-app',
@@ -11,24 +12,52 @@ import { TokenStorageService } from 'src/services/token-storage.service';
 export class AppComponent{
   private roles: string[] = [];
   isLoggedIn = false;
-  showAdminBoard = false;
+  showEmployeesList = false;
   showModeratorBoard = false;
   username?: string;
+
+  public static employeesData = [ new User(
+    1,
+  'Никита',
+ 'Терехов',
+  'Геннадьевич',
+    new Date(),
+   [],
+  'string',
+  '89094533819',
+  'joniker'),
+    new User(
+      2,
+      'Елизавета',
+      'Медведева',
+      'Игоревна',
+      new Date(),
+      [],
+      'ул. Кузнецовская',
+      '89615131630',
+      'medv'),
+    new User(
+      3,
+      'Андрей',
+      'Сергеев',
+      'Александрович',
+      new Date(),
+      [],
+      'ул Кронверкская',
+      '88005553535',
+      'persik')
+  ]
   constructor(private tokenStorageService: TokenStorageService) {}
 
   ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
-    if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MANAGER');
-      this.username = user.username;
-    }
+
   }
-  logout(): void {
-    this.tokenStorageService.signOut();
-    window.location.reload();
+
+  setProfileInfo(name: string){
+    this.isLoggedIn = true;
+    this.showEmployeesList = true
+    this.username = name
   }
+
 
 }

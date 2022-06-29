@@ -16,3 +16,19 @@ mat-form-field{
   display:inline-block !important;
   float: left !important;
 }
+
+.dialog-content{
+  width: 500px;
+}
+.flex{
+  display: flex;
+  flex-flow: row wrap;
+}
+.flex *:last-child{
+  order: 999;
+  margin-left: auto;
+}
+
+.close{
+  cursor: pointer;
+}
