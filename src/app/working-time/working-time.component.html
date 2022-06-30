@@ -1,0 +1,86 @@
+
+
+<mat-card class="panel block-for-table">
+  <button class="nice-button" mat-button  [routerLink]="'/references'">Заявки и документы</button>
+</mat-card>
+
+<table mat-table *ngIf="displayedColumns" matSort [dataSource]="overworkData"  class="user-table" [matSortDisableClear]="true">
+
+<ng-container matColumnDef="date">
+  <th class=" table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Дата </th>
+  <td mat-cell class="table-entity" *matCellDef="let overwork"> {{(overwork.date | date: 'dd.MM.yyyy') || 'N/A'}}  </td>
+</ng-container>
+
+<ng-container matColumnDef="deviation">
+  <th class=" table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Отклонение </th>
+  <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.deviation}} </td>
+</ng-container>
+
+<ng-container matColumnDef="coming">
+  <th class=" table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Приход </th>
+  <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.coming}} </td>
+</ng-container>
+
+<ng-container matColumnDef="leaving">
+  <th class=" table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Уход </th>
+  <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.leaving}} </td>
+</ng-container>
+
+<ng-container matColumnDef="workout">
+  <th class=" table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Отработка </th>
+  <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.workout}} </td>
+</ng-container>
+
+<ng-container matColumnDef="overwork">
+  <th class=" table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Переработка </th>
+  <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.overwork}} </td>
+</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row></tr>
+</table>
+
+
+
+
+
+<table mat-table *ngIf="displayedColumnsForFooterTable" matSort [dataSource]="overworkGeneralData"  class="user-table" [matSortDisableClear]="true">
+
+  <ng-container matColumnDef="hour_graph">
+    <th class="table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Часы по графику </th>
+    <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.hour_graph}}  </td>
+  </ng-container>
+
+  <ng-container matColumnDef="workout_today">
+    <th class="table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Отработано по сегодня </th>
+    <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.workout_today}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="left_time">
+    <th class="table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Осталось работать </th>
+    <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.left_time}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="norm_evening">
+    <th class="table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Норма на вечер </th>
+    <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.norm_evening}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="days_moth_left">
+    <th class="table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Рабочих дней до конца мес. </th>
+    <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.days_moth_left}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="overwork_now">
+    <th class="table-header" mat-sort-header mat-header-cell *matHeaderCellDef> Текущая переработка </th>
+    <td mat-cell class="table-entity" *matCellDef="let overwork"> {{overwork.overwork_now}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsForFooterTable"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsForFooterTable;"></tr>
+  <tr mat-row></tr>
+
+</table>
+

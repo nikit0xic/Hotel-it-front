@@ -34,3 +34,9 @@ button.mat-menu-item:focus{
 .mat-menu-panel, .mat-menu-panel *{
   background-color: #98c8ec;
 }
+
+img{
+  height: 20px;
+  width: 20px;
+  float: right;
+}

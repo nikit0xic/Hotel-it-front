@@ -7,13 +7,13 @@
 
       <ul class="navbar-nav ml-auto option-panel" *ngIf="isLoggedIn">
         <li class="nav-item">
-          <a class="nav-link" >Рабочее время</a>
+          <a [routerLink]="'/working-time'" class="nav-link" >Рабочее время</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [matMenuTriggerFor]="servicesMenu" >Услуги</a>
+          <a class="nav-link" [matMenuTriggerFor]="servicesMenu" >Услуги &darr;</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [matMenuTriggerFor]="profileMenu" >{{username}}</a>
+          <a class="nav-link" [matMenuTriggerFor]="profileMenu" >{{username}} &darr;</a>
         </li>
         <mat-menu #profileMenu="matMenu"  xPosition="before">
           <button [routerLink]="'/profile'" mat-menu-item>

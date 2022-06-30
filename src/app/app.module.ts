@@ -19,13 +19,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatIconModule} from "@angular/material/icon";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatTabsModule} from "@angular/material/tabs";
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { Employees } from './employees/employees.component';
-import { BoardUserComponent } from './board-user/board-user.component';
-import { BoardManagerComponent } from './board-manager/board-manager.component';
 import {AppRoutingModule} from "../app-routing.module";
 import {authInterceptorProviders} from "./helpers/auth.interceptor";
 import {MatMenuModule} from "@angular/material/menu";
@@ -36,6 +33,8 @@ import {MatCardModule} from "@angular/material/card";
 import { ClientsListComponent } from './clients-list/clients-list.component';
 import { ReferencesComponent } from './references/references.component';
 import { ReferenceCardComponent } from './reference-card/reference-card.component';
+import { WorkingTimeComponent } from './working-time/working-time.component';
+
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   resourceTimeline
@@ -46,17 +45,15 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     AppComponent,
     UserTableComponent,
     DialogOverview,
-    RegisterComponent,
     LoginComponent,
     ProfileComponent,
     HomeComponent,
     Employees,
-    BoardUserComponent,
-    BoardManagerComponent,
     RoadmapComponent,
     ClientsListComponent,
     ReferencesComponent,
     ReferenceCardComponent,
+    WorkingTimeComponent
   ],
   imports: [
     BrowserModule,
